@@ -30,7 +30,8 @@ class Transfer(Transaction):
 
 class WithoutAccount(Transaction):
     password = models.CharField(max_length=50)
-    
+    reference_number = models.CharField(max_length=50)
+
     def save(self, *args, **kwargs):
         self.type = self.WITHOUT_ACCOUNT
         super().save(*args, **kwargs)
